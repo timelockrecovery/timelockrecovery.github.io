@@ -1,10 +1,10 @@
 ---
 ---
 
-@import "{{ site.theme }}";
-
 // Override default styles
 $header-bg-color: #f7931a;           // Primary header color
 $header-bg-color-secondary: #f2a900; // Secondary header color (for gradient)
 
 $section-headings-color: #f7931a;    // Heading colors
+
+@import "{{ site.theme }}";
