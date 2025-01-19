@@ -43,6 +43,13 @@ which you create a Timelock Recovery plan (back to the daily-purpose wallet or t
 - Specter Desktop: [source](https://github.com/oren-z0/timelockrecovery-specter)
 - Electrum (under development)
 
-## Services to get an alert when the *Alert Transaction* has been broadcasted
+## Blockchain explorers to check if the *Alert Transaction* has been broadcasted
+
+You can enter the transaction id in the following websites:
+
+- [mempool.space](https://mempool.space)
+- [blockstream.info](https://blockstream.info)
+
+## Services for automatic alert if the *Alert Transaction* has been broadcasted
 
 - TBD
