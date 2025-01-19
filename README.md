@@ -14,7 +14,7 @@ the funds elsewhere before the time-window expires).
 The implementation of Timelock Recovery is done with two transactions that are signed in advance,
 but broadcasted only when needed:
 
-1. An *Alert Transaction* which sends the funds from the wallet to itself (consolidates the UTXOs).
+1. An *Alert Transaction* which sends the funds from the wallet to itself (consolidating the UTXOs).
 2. A *Recovery Transaction* which sends the funds to a secondary wallet of your choice and can
 be added to the blockchain only X days after the Alert Transaction has been broadcasted (and mined).
 
@@ -43,4 +43,6 @@ which you create a Timelock Recovery plan (back to the daily-purpose wallet or t
 - Specter Desktop: [source](https://github.com/oren-z0/timelockrecovery-specter)
 - Electrum (under development)
 
-## Services to 
+## Services to get an alert when the *Alert Transaction* has been broadcasted
+
+- TBD
