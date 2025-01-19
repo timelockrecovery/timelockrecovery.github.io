@@ -2,9 +2,9 @@
 ---
 
 // Override default styles
-$header-bg-color: #f7931a;           // Primary header color
-$header-bg-color-secondary: #f2a900; // Secondary header color (for gradient)
+$header-bg-color: #f2a900;           // Primary header color
+$header-bg-color-secondary: #f7931a; // Secondary header color (for gradient)
 
-$section-headings-color: #f7931a;    // Heading colors
+$section-headings-color: #f2a900;    // Heading colors
 
 @import "{{ site.theme }}";
