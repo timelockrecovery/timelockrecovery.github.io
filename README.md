@@ -13,7 +13,7 @@ the funds elsewhere before the time-window expires).
 
 ## Watch the video (Specter Desktop demo starts at 12:08):
 <div align="center">
-    <video controls>
+    <video controls width="100%">
         <source src="https://v.nostr.build/a3JwIlQqwcb8WLEe.mp4" type="video/mp4">
     </video>
 </div>
