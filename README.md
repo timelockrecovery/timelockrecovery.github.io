@@ -21,8 +21,8 @@ be added to the blockchain only X days after the Alert Transaction has been broa
 Since Timelock Recovery plans do not require any involvement of a third party, they can be
 implemented in any Bitcoin wallet. However, two precaustions should be taken:
 
-1. Due to the way Bitcoin works, spending funds from the wallet might break the entire Timelock Recovery
-plan.
+1. Due to the way Bitcoin UTXOs work, spending funds from the wallet might break the entire
+Timelock Recovery plan.
 2. Adding more funds to the wallet will not be covered by the Timelock Recovery plan.
 
 Therefore it is highly recommended not to use the wallet for daily purposes after creating a
