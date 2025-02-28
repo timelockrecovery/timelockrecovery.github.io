@@ -3,7 +3,7 @@
 </div>
 
 Timelock Recovery is a mechanism which, in case of a catastrophic event
-(death or lose of your master key), can send your Bitcoin to a secondary wallet of your choice
+(death or loss of your master key), can send your Bitcoin to a secondary wallet of your choice
 after a time-window (i.e. 90 days).
 
 During that time-window, you can see that the Timelock Recovery mechanism has been triggered (a
