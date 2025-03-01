@@ -31,7 +31,7 @@ your loved ones could easily find) and only after accumulating enough funds rele
 storage, move them to a highly secure wallet (i.e. with a long passphrase that only you memorize) for
 which you create a Timelock Recovery plan (back to the daily-purpose wallet or to your inheritors' wallet).
 
-## Watch the demo for Electrum Wallet (technical demo starts at 10:00):
+## Watch the demo for Electrum Wallet + Trezor One (technical demo starts at 10:00):
 <div align="center">
     <video controls width="100%">
         <source src="https://v.nostr.build/vVbih1XoqIfKAaZi.mp4" type="video/mp4">
