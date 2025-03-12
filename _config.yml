@@ -1,5 +1,6 @@
 title: Timelock Recovery
 logo: assets/logo160.png
-description: Information about Bitcoin Timelock-Recovery extensions.
-author: Developed by Peaceful21.com
+description: |
+  Information about Bitcoin Timelock-Recovery extensions.
+  Developed by Peaceful21.com.
 theme: jekyll-theme-cayman
