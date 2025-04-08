@@ -68,3 +68,7 @@ You can enter the transaction id in the following websites:
 
 - [WoofBot](https://apps.umbrel.com/app/woofbot-lnd) - An app for node-runners (Umbrel) that can
 monitor the Bitcoin blockchain for transaction-ids and send alerts via Telegram.
+
+- [Cryptocurrency Alerting](https://cryptocurrencyalerting.com/wallet-watch.html) - A smartphone-app/website
+that monitors the Bitcoin blockchain for changes in specified addresses, and sends alerts via email, push-notifications
+and even a phone-call.
