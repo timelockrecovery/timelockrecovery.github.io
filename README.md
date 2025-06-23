@@ -34,7 +34,11 @@ to inheritors' wallet, or to a custodian etc.
 
 ## Watch the demo for Electrum Wallet + Trezor Safe 3:
 <div align="center">
-    <iframe src="https://drive.google.com/file/d/15qqFujXu0tSp8BltbbVb3p6-hjifgBav/preview" width="100%"></iframe>
+    <iframe
+        style="width: 100%; aspect-ratio: 16/9; border: 0;"
+        src="https://drive.google.com/file/d/10uXRouQbH1kz_HC14WnmRnYHa3gPZY8l/preview"
+        allowfullscreen
+    ></iframe>
 </div>
 
 ## Watch the demo for Specter Wallet (technical demo starts at 12:08):
