@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timelock Recovery</title>
+    <meta name="description" content="Information about Bitcoin Timelock-Recovery extensions.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bitcoin: {
+                            orange: '#f7931a',
+                            dark: '#f2a900'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-bitcoin-orange to-bitcoin-dark text-white py-12">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <img src="assets/logo160.png" alt="Timelock Recovery Logo" class="w-20 h-20 mx-auto mb-4">
+            <h1 class="text-3xl md:text-4xl font-bold">Timelock Recovery</h1>
+            <p class="mt-3 text-lg opacity-90">Bitcoin Timelock-Recovery Extensions</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-10">
+
+        <!-- Introduction -->
+        <section class="mb-10">
+            <p class="text-lg leading-relaxed">
+                Timelock Recovery is a mechanism which, in case of a catastrophic event
+                (death or loss of your master key), can send your Bitcoin to a secondary wallet of your choice
+                after a time-window (i.e. 90 days).
+            </p>
+            <p class="mt-4 leading-relaxed">
+                During that time-window, you can see that the Timelock Recovery mechanism has been triggered (a
+                transaction from your wallet to itself is created on the Bitcoin blockchain), and if this
+                has happened against your will, you can use your master key to cancel the process (by moving
+                the funds elsewhere before the time-window expires).
+            </p>
+        </section>
+
+        <!-- How it works -->
+        <section class="mb-10 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">How It Works</h2>
+            <p class="mb-4">
+                The implementation of Timelock Recovery is done with two transactions that are signed in advance,
+                but broadcasted only when needed:
+            </p>
+            <ol class="list-decimal list-inside space-y-2 ml-2">
+                <li>
+                    <strong>Alert/Initiate Transaction</strong> — sends the funds from the wallet to itself (consolidating the UTXOs).
+                </li>
+                <li>
+                    <strong>Recovery Transaction</strong> — sends the funds to a secondary wallet of your choice and can
+                    be added to the blockchain only X days after the Alert Transaction has been broadcasted (and mined).
+                </li>
+            </ol>
+        </section>
+
+        <!-- Important notes -->
+        <section class="mb-10 bg-amber-50 rounded-lg border border-amber-200 p-6">
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">Important Notes</h2>
+            <p class="mb-4">
+                Since Timelock Recovery plans do not require any involvement of a third party, they can be
+                implemented in any Bitcoin wallet. However, two precautions should be taken:
+            </p>
+            <ol class="list-decimal list-inside space-y-2 ml-2 mb-4">
+                <li>Due to the way Bitcoin UTXOs work, spending funds from the wallet might break the entire recovery plan.</li>
+                <li>Adding more funds to the wallet will not be covered by the Timelock Recovery plan.</li>
+            </ol>
+            <p class="text-sm text-gray-700">
+                Therefore it is highly recommended not to use the wallet for daily purposes after creating a
+                Timelock Recovery plan. Instead, for daily purposes use a separate wallet (with a seed in a place that
+                your loved ones could easily find) and only after accumulating enough funds relevant for long-term
+                storage, move them to a highly secure wallet (i.e. with a long passphrase that only you memorize).
+                The Recovery Plan should then be created for the highly secure wallet, and send the funds back to the daily-purpose wallet,
+                to inheritors' wallet, or to a custodian etc.
+            </p>
+        </section>
+
+        <!-- Demo Videos -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6">Demos</h2>
+
+            <div class="space-y-8">
+                <!-- Electrum + Trezor Demo -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Electrum Wallet + Trezor Safe 3</h3>
+                    <div class="aspect-video">
+                        <iframe
+                            class="w-full h-full rounded"
+                            src="https://drive.google.com/file/d/10uXRouQbH1kz_HC14WnmRnYHa3gPZY8l/preview"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+                </div>
+
+                <!-- Specter Demo -->
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-lg font-medium text-gray-900 mb-4">Specter Wallet <span class="text-sm text-gray-500">(technical demo starts at 12:08)</span></h3>
+                    <div class="aspect-video">
+                        <video controls class="w-full h-full rounded bg-black">
+                            <source src="https://files.niot.space/a3JwIlQqwcb8WLEe.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recovery Plan Examples -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Recovery Plan Examples</h2>
+            <p class="mb-4 text-gray-600">These are examples of Timelock Recovery plans generated by the extensions:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a href="assets/recovery.pdf" class="flex items-center p-4 bg-white rounded-lg border border-gray-200 hover:border-bitcoin-orange hover:shadow-sm transition-all">
+                    <svg class="w-8 h-8 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 18h12a2 2 0 002-2V6l-4-4H4a2 2 0 00-2 2v12a2 2 0 002 2zm8-14l4 4h-4V4z"/>
+                    </svg>
+                    <span class="font-medium">recovery.pdf</span>
+                </a>
+                <a href="assets/recovery.json" class="flex items-center p-4 bg-white rounded-lg border border-gray-200 hover:border-bitcoin-orange hover:shadow-sm transition-all">
+                    <svg class="w-8 h-8 text-yellow-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 18h12a2 2 0 002-2V6l-4-4H4a2 2 0 00-2 2v12a2 2 0 002 2zm8-14l4 4h-4V4z"/>
+                    </svg>
+                    <span class="font-medium">recovery.json</span>
+                </a>
+                <a href="assets/cancellation.pdf" class="flex items-center p-4 bg-white rounded-lg border border-gray-200 hover:border-bitcoin-orange hover:shadow-sm transition-all">
+                    <svg class="w-8 h-8 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 18h12a2 2 0 002-2V6l-4-4H4a2 2 0 00-2 2v12a2 2 0 002 2zm8-14l4 4h-4V4z"/>
+                    </svg>
+                    <span class="font-medium">cancellation.pdf</span>
+                </a>
+                <a href="assets/cancellation.json" class="flex items-center p-4 bg-white rounded-lg border border-gray-200 hover:border-bitcoin-orange hover:shadow-sm transition-all">
+                    <svg class="w-8 h-8 text-yellow-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M4 18h12a2 2 0 002-2V6l-4-4H4a2 2 0 00-2 2v12a2 2 0 002 2zm8-14l4 4h-4V4z"/>
+                    </svg>
+                    <span class="font-medium">cancellation.json</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Technical Details -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Technical Details</h2>
+            <p>
+                Description in <a href="https://github.com/bitcoin/bips/pull/2068" class="text-bitcoin-orange hover:underline font-medium">BIP-128 PR</a>.
+            </p>
+        </section>
+
+        <!-- Supported Wallets -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Supported Wallets</h2>
+            <ul class="space-y-3">
+                <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-bitcoin-orange rounded-full mt-2 mr-3"></span>
+                    <span>
+                        <strong>Electrum Wallet:</strong> starting from
+                        <a href="https://github.com/spesmilo/electrum/releases/tag/4.6.0b1" class="text-bitcoin-orange hover:underline">version 4.6.0b1</a>
+                    </span>
+                </li>
+                <li class="flex items-start">
+                    <span class="inline-block w-2 h-2 bg-bitcoin-orange rounded-full mt-2 mr-3"></span>
+                    <span>
+                        <strong>Specter Desktop:</strong> under development —
+                        <a href="https://github.com/oren-z0/timelockrecovery-specter" class="text-bitcoin-orange hover:underline">source</a>
+                        <a href="https://github.com/cryptoadvance/specter-desktop/pull/2489" class="text-bitcoin-orange hover:underline">PR</a>
+                    </span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Block Explorers -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Block Explorers</h2>
+            <p class="mb-4 text-gray-600">You can enter the transaction id in the following websites to manually check if the <em>Alert Transaction</em> has been broadcasted:</p>
+            <ul class="space-y-2">
+                <li>
+                    <a href="https://mempool.space" class="text-bitcoin-orange hover:underline font-medium">mempool.space</a>
+                </li>
+                <li>
+                    <a href="https://blockstream.info" class="text-bitcoin-orange hover:underline font-medium">blockstream.info</a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Apps and Watchtower Services -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Apps and Watchtower Services</h2>
+            <p class="mb-4 text-gray-600">Get an automatic alert if the <em>Alert Transaction</em> has been broadcasted:</p>
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg border border-gray-200 p-5">
+                    <h3 class="font-semibold text-gray-900">
+                        <a href="https://apps.umbrel.com/app/woofbot-lnd" class="text-bitcoin-orange hover:underline">WoofBot</a>
+                    </h3>
+                    <p class="text-gray-600 mt-1">
+                        An app for node-runners (Umbrel) that can monitor the Bitcoin blockchain for transaction-ids and send alerts via Telegram.
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg border border-gray-200 p-5">
+                    <h3 class="font-semibold text-gray-900">
+                        <a href="https://cryptocurrencyalerting.com/wallet-watch.html" class="text-bitcoin-orange hover:underline">Cryptocurrency Alerting</a>
+                    </h3>
+                    <p class="text-gray-600 mt-1">
+                        A smartphone-app/website that monitors the Bitcoin blockchain for changes in specified addresses, and sends alerts via email, push-notifications and even a phone-call.
+                    </p>
+                </div>
+                <div class="bg-white rounded-lg border border-gray-200 p-5">
+                    <h3 class="font-semibold text-gray-900">
+                        <a href="https://ritrek.com" class="text-bitcoin-orange hover:underline">RITREK</a>
+                    </h3>
+                    <p class="text-gray-600 mt-1">
+                        An Android app for uploading, monitoring and initiating Timelock Recovery plans. Will be released soon.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8 mt-10">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="text-sm">Timelock Recovery <span class="text-xs text-gray-500">© 2026</span></p>
+        </div>
+    </footer>
+</body>
+</html>
