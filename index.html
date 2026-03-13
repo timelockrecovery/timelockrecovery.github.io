@@ -56,7 +56,7 @@
             <h2 class="text-xl font-semibold text-gray-900 mb-4">How It Works</h2>
             <p class="mb-4">
                 The implementation of Timelock Recovery is done with two transactions that are signed in advance,
-                but broadcasted only when needed:
+                but broadcast only when needed:
             </p>
             <ol class="list-decimal list-inside space-y-2 ml-2">
                 <li>
@@ -64,7 +64,7 @@
                 </li>
                 <li>
                     <strong>Recovery Transaction</strong> — sends the funds to a secondary wallet of your choice and can
-                    be added to the blockchain only X days after the Alert Transaction has been broadcasted (and mined).
+                    be added to the blockchain only X days after the Alert Transaction has been broadcast (and mined).
                 </li>
             </ol>
         </section>
@@ -184,7 +184,7 @@
         <!-- Block Explorers -->
         <section class="mb-10">
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Block Explorers</h2>
-            <p class="mb-4 text-gray-600">You can enter the transaction id in the following websites to manually check if the <em>Alert Transaction</em> has been broadcasted:</p>
+            <p class="mb-4 text-gray-600">You can enter the transaction id in the following websites to manually check if the <em>Alert Transaction</em> has been broadcast:</p>
             <ul class="space-y-2">
                 <li>
                     <a href="https://mempool.space" class="text-bitcoin-orange hover:underline font-medium">mempool.space</a>
@@ -195,10 +195,38 @@
             </ul>
         </section>
 
+        <!-- Initiating Recovery Plans -->
+        <section class="mb-10">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Initiating Recovery Plans</h2>
+            <p class="mb-4">
+                Initiating a Timelock Recovery Plan is as simple as broadcasting the <em>Alert Transaction</em>,
+                waiting the timelock period, and then broadcasting the <em>Recovery Transaction</em>.
+            </p>
+            <p class="mb-4">
+                If you have the transactions stored as a JSON file that follows <a href="https://bips.dev/128" class="text-bitcoin-orange hover:underline font-medium">BIP-128</a>, you can upload the file to:
+            </p>
+            <p class="mb-2">
+                <a href="https://ritrek.com/send" class="text-bitcoin-orange hover:underline font-medium">ritrek.com/send</a>
+            </p>
+            <p class="mb-2">
+                Alternatively, you can open the JSON file, find the transactions payload in hex format
+                (under the field names <code class="bg-gray-100 px-1 rounded text-sm">alert_tx</code>,
+                <code class="bg-gray-100 px-1 rounded text-sm">recovery_tx</code>), and paste the content in one of:
+            </p>
+            <ul class="space-y-2">
+                <li>
+                    <a href="https://mempool.space/tx/push" class="text-bitcoin-orange hover:underline font-medium">mempool.space/tx/push</a>
+                </li>
+                <li>
+                    <a href="https://blockstream.info/tx/push" class="text-bitcoin-orange hover:underline font-medium">blockstream.info/tx/push</a>
+                </li>
+            </ul>
+        </section>
+
         <!-- Apps and Watchtower Services -->
         <section class="mb-10">
             <h2 class="text-2xl font-semibold text-gray-900 mb-4">Apps and Watchtower Services</h2>
-            <p class="mb-4 text-gray-600">Get an automatic alert if the <em>Alert Transaction</em> has been broadcasted:</p>
+            <p class="mb-4 text-gray-600">Get an automatic alert if the <em>Alert Transaction</em> has been broadcast:</p>
             <div class="space-y-4">
                 <div class="bg-white rounded-lg border border-gray-200 p-5">
                     <h3 class="font-semibold text-gray-900">
