@@ -36,18 +36,25 @@
     <!-- Main Content -->
     <main class="max-w-4xl mx-auto px-6 py-10">
 
+        <div class="aspect-video mb-10">
+            <video controls class="w-full h-full rounded bg-black">
+                <source src="assets/timelock-recovery-explainer.mp4" type="video/mp4">
+                Your browser does not support the video tag: https://timelockrecovery.com/assets/timelock-recovery-explainer.mp4
+            </video>
+        </div>
+
         <!-- Introduction -->
         <section class="mb-10">
             <p class="text-lg leading-relaxed">
                 Timelock Recovery is a mechanism which, in case of a catastrophic event
                 (death or loss of your master key), can send your Bitcoin to a secondary wallet of your choice
-                after a time-window (i.e. 90 days).
+                after a cancellation window (i.e. 90 days after initiation).
             </p>
             <p class="mt-4 text-lg leading-relaxed">
-                During that time-window, you can see that the Timelock Recovery mechanism has been triggered (a
+                During that cancellation window, you can see that the Timelock Recovery mechanism has been initiated (a
                 transaction from your wallet to itself is created on the Bitcoin blockchain), and if this
-                has happened against your will, you can use your master key to cancel the process (by moving
-                the funds elsewhere before the time-window expires).
+                has happened against your will, you can use your master seed to cancel the process - by moving the
+                funds elsewhere before the end of the cancellation window.
             </p>
         </section>
 
@@ -74,7 +81,7 @@
             <h2 class="text-xl font-semibold text-gray-900 mb-4">Important Notes</h2>
             <p class="mb-4">
                 Since Timelock Recovery plans do not require any involvement of a third party, they can be
-                implemented in any Bitcoin wallet. However, two precautions should be taken:
+                created with any Bitcoin wallet. <strong>No need to move your funds to a new miniscript wallet.</strong> However, two precautions should be taken:
             </p>
             <ol class="list-decimal list-inside space-y-2 ml-2 mb-4">
                 <li>Due to the way Bitcoin UTXOs work, spending funds from the wallet might break the entire recovery plan.</li>
@@ -82,10 +89,13 @@
             </ol>
             <p>
                 Therefore, after creating a Timelock Recovery plan, it is strongly recommended that you do not use this wallet for day-to-day activities.
-                Instead, use a separate wallet for daily use (with a seed stored somewhere your loved ones can easily find). Once you have accumulated
-                enough funds for long-term storage, move them to a highly secure wallet (e.g., protected by a long passphrase that only you memorize), and then
-                create a Recovery Plan for that highly secure wallet. This recovery plan, when initiated, should either move funds back to the daily-use wallet,
+                Instead, use a separate wallet for daily use (with a seed stored somewhere your loved ones can easily find). Every time you have accumulated
+                enough funds for long-term storage, move them to a <strong>new</strong> highly secure wallet (e.g., protected by a long passphrase that only you memorize), and then
+                create a Recovery Plan for that highly secure wallet. This recovery plan, when initiated, could either move funds back to the daily-use wallet,
                 send them to a different inheritor’s wallet, or transfer them to a custodian, etc.
+                A good way to manage separated highly secure wallets that you don't intend to use for a long time, is to add a counter at the end of the passphrase
+                ("mypassphrase1", "mypassphrase2", "mypassphrase3", etc.), or to use <em>Bitcoin accounts</em> (for example using on
+                <a href="https://trezor.io/guides/trezor-suite/manage-accounts-in-trezor-suite#mobile" class="text-bitcoin-orange hover:underline">Trezor Suite</a>).
             </p>
         </section>
 
